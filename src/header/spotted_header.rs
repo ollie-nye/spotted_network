@@ -7,17 +7,16 @@ pub struct SpottedHeader {
 impl SpottedHeader {
   pub fn new(opcode: u16) -> SpottedHeader {
 
-    let mut id: [u8; 8] = id();
+    let id: [u8; 8] = id();
 
     let protocol_version: u16 = 0x0001;
 
-    let header = SpottedHeader { id, opcode, protocol_version };
-
-    header
+    SpottedHeader { id, opcode, protocol_version }
   }
 
   pub fn serialize(&self) -> Vec<u8> {
     let mut out = Vec::new();
+
     out.extend(self.id.iter().cloned());
     out.extend(self.opcode.to_be_bytes().iter().cloned());
     out.extend(self.protocol_version.to_be_bytes().iter().cloned());

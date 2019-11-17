@@ -40,8 +40,6 @@ impl SpottedCoordinate {
       out.extend(y.to_be_bytes().iter().cloned());
     }
 
-    println!("sending {:?}", out);
-
     out
   }
 
