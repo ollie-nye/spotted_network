@@ -30,6 +30,7 @@ impl SpottedCoordinate {
   pub fn serialize(&self) -> Vec<u8> {
     let mut out = Vec::new();
 
+    out.extend(self.header.serialize().iter().cloned());
     out.push(self.camera);
     out.push(self.hotspot_count);
 
