@@ -23,6 +23,10 @@ impl SpottedCoordinate {
     self.hotspot_count += 1;
   }
 
+  pub fn hotspots(&self) -> Vec<(u16, u16)> {
+    self.hotspots
+  }
+
   pub fn serialize(&self) -> Vec<u8> {
     let mut out = Vec::new();
 
