@@ -66,14 +66,14 @@ impl SpottedPacket {
   }
 
   pub fn into_control(&self) -> SpottedControl {
-    SpottedControl::deserialize(self.data)
+    SpottedControl::deserialize(&self.data)
   }
 
   pub fn into_image(&self) -> SpottedImage {
-    SpottedImage::deserialize(self.data)
+    SpottedImage::deserialize(&self.data)
   }
 
   pub fn into_coordinate(&self) -> SpottedCoordinate {
-    SpottedCoordinate::deserialize(self.data)
+    SpottedCoordinate::deserialize(&self.data)
   }
 }
