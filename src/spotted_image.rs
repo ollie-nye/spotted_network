@@ -9,7 +9,7 @@ pub struct SpottedImage {
 
 impl SpottedImage {
   pub fn new(data: [u8; header::IMAGE_SIZE]) -> SpottedImage {
-    let header = SpottedHeader::new(opcode::OP_SPOT_IMAGE);
+    let header = SpottedHeader::new(opcode::OP_IMAGE);
 
     SpottedImage { header, data }
   }

@@ -10,7 +10,7 @@ pub struct SpottedCoordinate {
 
 impl SpottedCoordinate {
   pub fn new(camera: u8) -> SpottedCoordinate {
-    let header = SpottedHeader::new(opcode::OP_SPOT_COORDINATE);
+    let header = SpottedHeader::new(opcode::OP_COORDINATE);
 
     let hotspot_count:u8 = 0;
     let hotspots: Vec<(u16, u16)> = Vec::new();

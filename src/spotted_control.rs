@@ -9,7 +9,7 @@ pub struct SpottedControl {
 
 impl SpottedControl {
   pub fn new(key:u8, value: u8) -> SpottedControl {
-    let header = SpottedHeader::new(opcode::OP_SPOT_CONTROL);
+    let header = SpottedHeader::new(opcode::OP_CONTROL);
 
     let spotted_control = SpottedControl { header, key, value };
 
