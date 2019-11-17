@@ -24,6 +24,10 @@ impl SpottedHeader {
 
     out
   }
+
+  pub fn opcode(&self) -> u16 {
+    self.opcode
+  }
 }
 
 pub fn id() -> [u8; 8] {
