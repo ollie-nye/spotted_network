@@ -8,6 +8,7 @@ use spotted_image::SpottedImage;
 use spotted_control::SpottedControl;
 use spotted_coordinate::SpottedCoordinate;
 
+#[derive(PartialEq)]
 pub enum SpottedPacket {
   SpottedImage(SpottedImage),
   SpottedControl(SpottedControl),
