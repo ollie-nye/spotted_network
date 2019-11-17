@@ -1,5 +1,5 @@
-pub mod spotted_header;
 pub mod opcode;
+pub mod spotted_header;
 
 pub const IMAGE_WIDTH: usize = 256;
 pub const IMAGE_HEIGHT: usize = 160;
