@@ -24,7 +24,7 @@ impl SpottedCoordinate {
   }
 
   pub fn hotspots(&self) -> Vec<(u16, u16)> {
-    self.hotspots
+    self.hotspots.clone()
   }
 
   pub fn serialize(&self) -> Vec<u8> {
