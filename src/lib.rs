@@ -8,10 +8,9 @@ use spotted_image::SpottedImage;
 use spotted_control::SpottedControl;
 use spotted_coordinate::SpottedCoordinate;
 
-#[derive(Clone)]
 pub struct SpottedPacket {
   header: header::spotted_header::SpottedHeader,
-  data: [u8; 65,507 - 12] // UDP max size - header bytes
+  data: [u8; 65507 - 12] // UDP max size - header bytes
 }
 
 impl SpottedPacket {
@@ -20,7 +19,7 @@ impl SpottedPacket {
 
     let mut header = header::spotted_header::SpottedHeader::new(0x0000);
 
-    let mut data = [0x00; 65,507 - 12];
+    let mut data = [0x00; 65507 - 12];
 
     if id == header::spotted_header::id() {
       let opcode: u16 = ((content[8] as u16) << 8) | content[9] as u16;
@@ -31,7 +30,7 @@ impl SpottedPacket {
       data.copy_from_slice(&content[12..]);
     }
 
-    return SpottedPacket { header, data};
+    return SpottedPacket { header, data };
   }
 
   pub fn is_spotted_packet(&self) -> bool {
