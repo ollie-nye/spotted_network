@@ -31,3 +31,10 @@ impl SpottedImage {
         SpottedImage::new(image)
     }
 }
+
+#[cfg(test)]
+#[test]
+fn test_new_opcode() {
+    let packet = SpottedImage::new([0x00; header::IMAGE_SIZE]);
+    assert_eq!(packet.header.opcode(), 0x0001);
+}

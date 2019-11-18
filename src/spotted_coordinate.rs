@@ -64,3 +64,22 @@ impl SpottedCoordinate {
         out
     }
 }
+
+#[cfg(test)]
+#[test]
+fn test_new_opcode() {
+    let packet = SpottedCoordinate::new(0x01);
+    assert_eq!(packet.header.opcode(), 0x0003);
+}
+
+#[test]
+fn test_new_camera() {
+    let packet = SpottedCoordinate::new(0x01);
+    assert_eq!(packet.camera, 0x01);
+}
+
+#[test]
+fn test_new_hotspot_count() {
+    let packet = SpottedCoordinate::new(0x01);
+    assert_eq!(packet.hotspot_count, 0);
+}

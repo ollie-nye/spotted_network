@@ -39,3 +39,48 @@ pub fn id() -> [u8; 8] {
 
     id
 }
+
+#[cfg(test)]
+#[test]
+fn test_new_opcode() {
+    let header = SpottedHeader::new(0x1234);
+    assert_eq!(header.opcode, 0x1234);
+}
+
+#[test]
+fn test_new_protocol_version() {
+    let header = SpottedHeader::new(0x1234);
+    assert_eq!(header.protocol_version, 0x0001);
+}
+
+#[test]
+fn test_serialize_id() {
+    let header = SpottedHeader::new(0x1234);
+    let bytes = header.serialize();
+    assert_eq!(bytes[0..8], [83, 112, 111, 116, 116, 101, 100, 0]);
+}
+
+#[test]
+fn test_serialize_opcode() {
+    let header = SpottedHeader::new(0x1234);
+    let bytes = header.serialize();
+    assert_eq!(bytes[8..10], [0x12, 0x34]);
+}
+
+#[test]
+fn test_serialize_protocol_version() {
+    let header = SpottedHeader::new(0x1234);
+    let bytes = header.serialize();
+    assert_eq!(bytes[10..12], [0x00, 0x01]);
+}
+
+#[test]
+fn test_opcode() {
+    let header = SpottedHeader::new(0x1234);
+    assert_eq!(header.opcode(), 0x1234);
+}
+
+#[test]
+fn test_id() {
+    assert_eq!(id(), [83, 112, 111, 116, 116, 101, 100, 0]);
+}
